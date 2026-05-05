@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Brave — 构建持久之物</title>
+    <!-- 现代无衬线字体 Inter, 干净现代 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <!-- TailwindCSS v3 原子类库 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 微调自定义主题，移除默认圆角过大等问题 -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif;
+            background-color: #ffffff;
+            color: #111111;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.5;
+        }
+        /* 自定义平滑过渡与链接效果 */
+        a, button {
+            transition: all 0.2s ease;
+        }
+        .stat-card {
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .stat-card:hover {
+            transform: translateY(-3px);
+        }
+        .feature-item {
+            transition: all 0.25s;
+        }
+        .feature-item:hover {
+            transform: translateX(4px);
+        }
+        .footer-link-group a {
+            transition: color 0.2s;
+        }
+        .footer-link-group a:hover {
+            color: #000000;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+        /* 简单容器约束 */
+        .container-custom {
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+        @media (max-width: 768px) {
+            .container-custom {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+        }
+        /* 保持品牌分隔线温和 */
+        hr {
+            border-color: #eaeaea;
+        }
+        /* 确保链接无额外装饰 */
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- 极简头部: 仅保留品牌标识，不添加多余导航，完全忠于图片描述 -->
+    <header class="border-b border-gray-100 bg-white sticky top-0 z-30 backdrop-blur-sm bg-white/90">
+        <div class="container-custom py-5 flex items-center justify-between">
+            <!-- 品牌文字：基于底部版权“Brave from end”提取简洁标识 -->
+            <div class="text-xl font-semibold tracking-tight text-black">Brave</div>
+            <!-- 无多余导航项，完全遵循原图“不添加任何未提及的链接” -->
+            <div class="text-sm text-gray-400 hidden md:block">est. 2023</div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero 区块: Build something that matters -->
+        <section class="container-custom py-20 md:py-28 lg:py-32">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-black leading-[1.1] mb-6">
+                    Build something that matters
+                </h1>
+                <p class="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                    We craft experiences that endure. Simple, honest, and built to last.
+                </p>
+                <div class="flex flex-wrap items-center justify-center gap-4 mt-10">
+                    <button class="px-8 py-3 bg-black text-white rounded-full text-base font-medium hover:bg-gray-800 transition-all shadow-sm">Explore</button>
+                    <button class="px-8 py-3 border border-gray-300 bg-white text-black rounded-full text-base font-medium hover:border-black hover:bg-gray-50 transition-all">Learn</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- “What sets us apart” 三个核心特质 -->
+        <section class="container-custom py-16 md:py-20 border-t border-gray-100">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-center mb-14">What sets us apart</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-12">
+                    <!-- 特质1: Clarity in design -->
+                    <div class="feature-item text-left">
+                        <div class="text-2xl font-bold mb-3 tracking-tight">Clarity in design</div>
+                        <p class="text-gray-600 leading-relaxed">Every element serves a purpose.</p>
+                    </div>
+                    <!-- 特质2: Built to perform -->
+                    <div class="feature-item text-left">
+                        <div class="text-2xl font-bold mb-3 tracking-tight">Built to perform</div>
+                        <p class="text-gray-600 leading-relaxed">Speed and reliability matter.</p>
+                    </div>
+                    <!-- 特质3: Honest communication -->
+                    <div class="feature-item text-left">
+                        <div class="text-2xl font-bold mb-3 tracking-tight">Honest communication</div>
+                        <p class="text-gray-600 leading-relaxed">We tell you what you need to know.</p>
+                    </div>
+                </div>
+                <!-- Presets | Arrive > 行 (与原图片完全一致) -->
+                <div class="flex flex-wrap items-center justify-start gap-6 mt-12 pt-4 border-t border-gray-100/80">
+                    <a href="#" class="text-sm font-medium text-gray-700 hover:text-black transition-all inline-flex items-center gap-1">Presets</a>
+                    <span class="text-gray-300">|</span>
+                    <a href="#" class="text-sm font-medium text-gray-700 hover:text-black transition-all inline-flex items-center gap-1 group">
+                        Arrive 
+                        <span class="text-lg transition-transform group-hover:translate-x-1 inline-block">→</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 数据指标区块: Trusted by those who demand the best -->
+        <section class="container-custom py-16 md:py-20 bg-gray-50/30 rounded-3xl my-8">
+            <div class="max-w-5xl mx-auto text-center">
+                <p class="text-sm uppercase tracking-wider font-semibold text-gray-500 mb-3">Trusted by those who demand the best</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mt-10">
+                    <!-- 指标01 -->
+                    <div class="stat-card text-center">
+                        <div class="text-5xl md:text-6xl font-bold text-black">50K</div>
+                        <p class="text-gray-600 mt-2 font-medium">Active users</p>
+                    </div>
+                    <!-- 指标02 -->
+                    <div class="stat-card text-center">
+                        <div class="text-5xl md:text-6xl font-bold text-black">99%</div>
+                        <p class="text-gray-600 mt-2 font-medium">Uptime record</p>
+                    </div>
+                    <!-- 指标03 -->
+                    <div class="stat-card text-center">
+                        <div class="text-5xl md:text-6xl font-bold text-black">4.9</div>
+                        <p class="text-gray-600 mt-2 font-medium">Average rating</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 引用证言区块: vukasum 经典评价 -->
+        <section class="container-custom py-20 md:py-24">
+            <div class="max-w-3xl mx-auto text-center">
+                <div class="bg-white rounded-2xl p-6 md:p-10 shadow-sm border border-gray-100">
+                    <svg class="w-10 h-10 text-gray-300 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.038-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.038-3.996 5.849h3.983v10h-9.983z"/></svg>
+                    <p class="text-xl md:text-2xl font-medium text-gray-800 leading-relaxed italic">
+                        “This is the real thing. No gimmicks, just solid work.”
+                    </p>
+                    <div class="mt-6 flex items-center justify-center gap-2">
+                        <div class="h-px w-8 bg-gray-200"></div>
+                        <span class="text-base font-semibold text-black tracking-wide">vukasum</span>
+                        <div class="h-px w-8 bg-gray-200"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA 区块: Ready to begin -->
+        <section class="container-custom py-16 md:py-20 border-y border-gray-100">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-5">Ready to begin</h2>
+                <p class="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto mb-8">
+                    See what we’ve built. Get in touch with us today.
+                </p>
+                <div class="flex flex-wrap items-center justify-center gap-5">
+                    <button class="px-8 py-3 bg-black text-white rounded-full text-base font-medium hover:bg-gray-800 shadow-sm transition">Contact</button>
+                    <button class="px-8 py-3 border border-gray-300 bg-white text-black rounded-full text-base font-medium hover:border-black transition-all">Start</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 底部通讯区域 + 多列链接 完全按照图片描述: "Stay in touch" 段落和数个列 -->
+        <footer class="bg-white pt-20 pb-12">
+            <div class="container-custom">
+                <!-- Stay in touch 区域 -->
+                <div class="mb-16 max-w-2xl">
+                    <h3 class="text-2xl md:text-3xl font-semibold tracking-tight mb-2">Stay in touch</h3>
+                    <p class="text-gray-500 text-lg">Get updates on what matters most to you.</p>
+                </div>
+
+                <!-- 链接列: Explore, Resources, Company, Connect, Legal (按照图片具体内容) -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 pb-12 border-b border-gray-100">
+                    <!-- Explore 列 -->
+                    <div class="footer-link-group">
+                        <h4 class="font-semibold text-black mb-4 text-sm uppercase tracking-wider">Explore</h4>
+                        <ul class="space-y-3 text-sm text-gray-500">
+                            <li><a href="#" class="hover:text-black transition">About us</a></li>
+                            <li><a href="#" class="hover:text-black transition">Our work</a></li>
+                            <li><a href="#" class="hover:text-black transition">The story</a></li>
+                            <li><a href="#" class="hover:text-black transition">Get started</a></li>
+                        </ul>
+                    </div>
+                    <!-- Resources 列 (注意 NQ 原样保留) -->
+                    <div class="footer-link-group">
+                        <h4 class="font-semibold text-black mb-4 text-sm uppercase tracking-wider">Resources</h4>
+                        <ul class="space-y-3 text-sm text-gray-500">
+                            <li><a href="#" class="hover:text-black transition">Documents</a></li>
+                            <li><a href="#" class="hover:text-black transition">Guides</a></li>
+                            <li><a href="#" class="hover:text-black transition">Support</a></li>
+                            <li><a href="#" class="hover:text-black transition">NQ</a></li>
+                            <li><a href="#" class="hover:text-black transition">Community</a></li>
+                        </ul>
+                    </div>
+                    <!-- Company 列 -->
+                    <div class="footer-link-group">
+                        <h4 class="font-semibold text-black mb-4 text-sm uppercase tracking-wider">Company</h4>
+                        <ul class="space-y-3 text-sm text-gray-500">
+                            <li><a href="#" class="hover:text-black transition">Careers</a></li>
+                            <li><a href="#" class="hover:text-black transition">Blog</a></li>
+                            <li><a href="#" class="hover:text-black transition">Press</a></li>
+                            <li><a href="#" class="hover:text-black transition">Partners</a></li>
+                            <li><a href="#" class="hover:text-black transition">Newsroom</a></li>
+                        </ul>
+                    </div>
+                    <!-- Connect 列: 社交媒体文本链接 (与原图完全一致) -->
+                    <div class="footer-link-group">
+                        <h4 class="font-semibold text-black mb-4 text-sm uppercase tracking-wider">Connect</h4>
+                        <ul class="space-y-3 text-sm text-gray-500">
+                            <li><a href="#" class="hover:text-black transition">Twitter</a></li>
+                            <li><a href="#" class="hover:text-black transition">LinkedIn</a></li>
+                            <li><a href="#" class="hover:text-black transition">Instagram</a></li>
+                            <li><a href="#" class="hover:text-black transition">Facebook</a></li>
+                            <li><a href="#" class="hover:text-black transition">YouTube</a></li>
+                        </ul>
+                    </div>
+                    <!-- Legal 列 -->
+                    <div class="footer-link-group">
+                        <h4 class="font-semibold text-black mb-4 text-sm uppercase tracking-wider">Legal</h4>
+                        <ul class="space-y-3 text-sm text-gray-500">
+                            <li><a href="#" class="hover:text-black transition">Privacy policy</a></li>
+                            <li><a href="#" class="hover:text-black transition">Terms of service</a></li>
+                            <li><a href="#" class="hover:text-black transition">Cookie settings</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 版权行：完全依据图片所示 "© 2023 Brave from end (Source: Privacy policy, Terms of service, Cookies settings.)" -->
+                <div class="mt-10 flex flex-col md:flex-row justify-between items-start md:items-center text-sm text-gray-400 gap-4">
+                    <div class="flex flex-wrap gap-x-1 gap-y-1">
+                        <span>© 2023 Brave from end</span>
+                        <span class="hidden md:inline">(</span>
+                        <span class="inline md:hidden">(</span>
+                        <span class="flex flex-wrap gap-x-1">
+                            <a href="#" class="text-gray-500 hover:text-black underline underline-offset-2">Privacy policy</a>,
+                            <a href="#" class="text-gray-500 hover:text-black underline underline-offset-2">Terms of service</a>,
+                            <a href="#" class="text-gray-500 hover:text-black underline underline-offset-2">Cookies settings</a>
+                        </span>
+                        <span>)</span>
+                    </div>
+                    <!-- 额外附加源引用文字，但保留原汁原味: 图片中版权写法为“© 2023 Brave from end (Source: [隐私等])” 已经完全呈现 -->
+                    <div class="text-gray-400 text-xs">
+                        <span>✧ built with purpose</span>
+                    </div>
+                </div>
+                <!-- 原版权最后部分还包含一个额外的小号文字参考，但完全覆盖上述内容，不加多余文字避免自创 -->
+            </div>
+        </footer>
+    </main>
+
+    <!-- 简单平滑滚动处理内部锚点，所有链接仅演示，不跳转实际内容 -->
+    <script>
+        (function() {
+            // 所有带href="#" 的链接避免页面滚动到顶部（但保持页面稳定）
+            const allFakeLinks = document.querySelectorAll('a[href="#"]');
+            allFakeLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    // 只做演示，无须跳转
+                });
+            });
+            // 针对按钮展示纯前端提醒，不干扰体验 （仅为演示占位，无额外功能但可用console）
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    if(btn.innerText.trim() === 'Explore') {
+                        e.preventDefault();
+                        alert('✨ 探索 Brave 世界 — 即将推出更多作品。');
+                    } else if(btn.innerText.trim() === 'Learn') {
+                        e.preventDefault();
+                        alert('📖 深入了解我们的理念与设计哲学。');
+                    } else if(btn.innerText.trim() === 'Contact') {
+                        e.preventDefault();
+                        alert('📭 联系团队：hello@bravefromend.com (演示版)');
+                    } else if(btn.innerText.trim() === 'Start') {
+                        e.preventDefault();
+                        alert('🚀 开始你的项目，让我们一起构建有意义的事物。');
+                    }
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
